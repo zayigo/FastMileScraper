@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+bs4 = "*"
+pyyaml = "*"
+
+[dev-packages]
+flake8 = "*"
+isort = "*"
+rope = "*"
+autopep8 = "*"
+yapf = "*"
+pylint = "*"
+mypy = "*"
+types-requests = "*"
+
+[requires]
+python_version = "3"

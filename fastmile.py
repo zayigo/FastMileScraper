@@ -171,7 +171,6 @@ class FMScraper:
 
     def get_secondary_cells(self) -> List[Dict[str, Union[str, int]]]:
         """Returns the signal values of the secondary cells"""
-        # TODO: test without carrier aggregation
         # TODO: try to guess band from earfcn
         values = self.get_values_after_comment("Secondary Cell information card")
         result = []

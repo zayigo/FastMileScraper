@@ -189,12 +189,12 @@ If you are behind CG-NAT the IP will be "internal" one.
 "ca": {
   "enb": xxxxx, // Current eNodeB 
   "cid": xx, // CID of the primary band
-  "dl_ca": [ // Bands used for download carrier-aggregation, first one is primary
+  "dl_bands": [ // Bands used for download, first one is primary
     1,
     7,
     3
   ],
-  "ul_ca": [ // Bands used for upload carrier-aggregation, first one is primary
+  "ul_bands": [ // Bands used for upload, first one is primary
     1,
     7
   ]
@@ -236,7 +236,7 @@ If you are behind CG-NAT the IP will be "internal" one.
 ## Roadmap
 
 - [ ] Test with different models and software versions
-- [ ] Test with carrier aggregation disabled
+- [X] Test with carrier aggregation disabled
 - [ ] Estimate band from EARFCN
 - [ ] Add "Trigger Measurement" command
 - [ ] Add login and login-protected functions

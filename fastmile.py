@@ -25,8 +25,11 @@ class FMScraper:
         return None if (ip == "::") else ip
 
     @staticmethod
-    def parse_int(html_element: Tag) -> int:
-        return int(html_element.get_text(strip=True))
+    def parse_int(html_element: Tag) -> Optional[int]:
+        try:
+            return int(html_element.get_text(strip=True))
+        except ValueError:
+            return None
 
     @staticmethod
     def parse_used_data(val: str) -> Optional[Dict[str, Union[float, str]]]:
@@ -48,6 +51,14 @@ class FMScraper:
             "rssi": FMScraper.parse_int(val[5]),
             "sinr": FMScraper.parse_int(val[6]),
         }
+
+    @staticmethod
+    def parse_bands(tag: Tag) -> List[int]:
+        bands = tag.get_text(strip=True)
+        if (bands != "CA Not Available"):
+            b_list = bands.split("+")
+            return [int(b.replace("B", "")) for b in b_list]
+        return []
 
     def download(self) -> None:
         """Downloads and parses the status page
@@ -176,10 +187,8 @@ class FMScraper:
         attached_cell = self.soup.find(id="attached-cell-val").find_all("span")
         result = {"enb": FMScraper.parse_int(attached_cell[0]), "cid": FMScraper.parse_int(attached_cell[1])}
         primary_band = FMScraper.parse_int(attached_cell[2])
-        ca_dl = self.soup.find(id="bandDL-val").get_text(strip=True).split("+")
-        ca_dl = [int(b.replace("B", "")) for b in ca_dl]
-        ca_ul = self.soup.find(id="bandUL-val").get_text(strip=True).split("+")
-        ca_ul = [int(b.replace("B", "")) for b in ca_ul]
-        result["dl_ca"] = [primary_band, *ca_dl]
-        result["ul_ca"] = [primary_band, *ca_ul]
+        ca_dl = FMScraper.parse_bands(self.soup.find(id="bandDL-val"))
+        ca_ul = FMScraper.parse_bands(self.soup.find(id="bandUL-val"))
+        result["dl_bands"] = [primary_band, *ca_dl]
+        result["ul_bands"] = [primary_band, *ca_ul]
         return result

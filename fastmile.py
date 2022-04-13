@@ -131,7 +131,7 @@ class FMScraper:
                     end = True
                     break
                 result.append({
-                    "cid": FMScraper.parse_int(cell),
+                    "pci": FMScraper.parse_int(cell),
                     "earfcn": FMScraper.parse_int(self.soup.find(id=f"available-earfcn-{count}")),
                     "rsrp": FMScraper.parse_int(self.soup.find(id=f"rsrp-{count}")),
                     "rsqr": FMScraper.parse_int(self.soup.find(id=f"rsrq-{count}")),

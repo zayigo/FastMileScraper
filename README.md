@@ -164,21 +164,25 @@ If you are behind CG-NAT the IP will be "internal" one.
   "eth": {  // Traffic since the last boot
     "download": {
       "val": 12.73,
-      "unit": "GB"
+      "unit": "GB",
+      "val_gb": 12.73 // initially the traffic is displayed in MB
     },
     "upload": {
-      "val": 4.4,
-      "unit": "GB"
+      "val": 451.2,
+      "unit": "MB",
+      "val_gb": 0.4512
     }
   },
   "lte": {  // Should be the same of the ethernet interface, just reversed
     "download": {
-      "val": 4.22,
-      "unit": "GB"
+      "val": 451.2,
+      "unit": "MB",
+      "val_gb": 0.4512
     },
     "upload": {
       "val": 12.7,
-      "unit": "GB"
+      "unit": "GB",
+      "val_gb": 12.7
     }
   }
 }

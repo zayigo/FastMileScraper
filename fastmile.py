@@ -39,7 +39,9 @@ class FMScraper:
             return None
         unit_str = unit.group()
         float_val = float(val.replace(unit_str, ""))
-        return {"val": float_val, "unit": unit_str}
+        # TODO: is TB conversion needed?
+        val_gb = float_val / 1000 if (unit_str == "MB") else float_val
+        return {"val": float_val, "unit": unit_str, "val_gb": val_gb, }
 
     @staticmethod
     def parse_cell(val: List[Tag]) -> Dict[str, Union[int, str]]:

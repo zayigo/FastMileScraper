@@ -1,3 +1,5 @@
+
+
 <div align="center">
   <h1 align="center">FastMileScraper</h1>
 
@@ -63,7 +65,7 @@ To install the required libraries you can use `pipenv` or `pip`.
   ```
 * with *pip*
   ```sh
-  pip install -r requirements.txt
+  pip install requests beautifulsoup4
   ```
 
 A working connection to the modem's management interface (by default `https://192.168.0.1/status.php`) it's needed.

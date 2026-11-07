@@ -31,7 +31,7 @@
         <li><a href="#pci--cell-lock">PCI / Cell Lock</a></li>
         <li><a href="#apn-management">APN Management</a></li>
         <li><a href="#ssh-access-management">SSH Access Management</a></li>
-        <li><a href="#troubleshooting-ssh-in-router-mode">Troubleshooting SSH in Router Mode</a></li>
+        <li><a href="#Note-about-SSH-access">Note about SSH access</a></li>
         <li><a href="#cell-measurements">Cell Measurements</a></li>
         <li><a href="#reboot">Reboot</a></li>
       </ul>

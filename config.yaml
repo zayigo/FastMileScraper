@@ -1,2 +1,9 @@
 connection:
   host: 192.168.0.1
+  protocol: https
+  timeout: 30
+  interface: wlp0s20f3
+
+auth:
+  username: fm2-installer
+  password: Y$Gb7GVg

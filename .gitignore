@@ -134,3 +134,6 @@ setup.cfg
 
 # Pipenv
 Pipfile.lock
+
+# Configuration with credentials
+config.yaml
